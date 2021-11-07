@@ -5,7 +5,7 @@ terraform {
       version = "2.8.0"
     }
     backend "local"{
-      path = "/temp/terraform.tfstate"
+      
     }
   }
 }
