@@ -76,7 +76,7 @@ jobs:
       # Your Tailscale authentication key, from the admin panel.
         authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
       # Tailscale version to use.
-        version: 1.18.0 # default is 1.14.0
+      # version: 1.18.0 # default is 1.14.0
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
