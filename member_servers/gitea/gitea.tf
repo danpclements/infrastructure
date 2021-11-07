@@ -15,7 +15,7 @@ provider "proxmox" {
   # api token id is in the form of: <username>@pam!<tokenId>
   pm_api_token_id = "terraform-prov@pve!terraformToken"
 
-  # this is the full secret wrapped in quotes. don't worry, I've already deleted this from my proxmox cluster by the time you read this post
+  # TODO get this from Vault
   pm_api_token_secret = "f715bc1d-f48b-4b05-80ea-2e56f086d33f"
 
   # leave tls_insecure set to true unless you have your proxmox SSL certificate situation fully sorted out (if you do, you will know)
@@ -40,13 +40,12 @@ resource "proxmox_vm_qemu" "test_server" {
   cores = 2
   sockets = 1
   cpu = "host"
-  memory = 16384
+  memory = 2048
   scsihw = "virtio-scsi-pci"
   bootdisk = "scsi0"
 
   disk {
     slot = 0
-    # set disk size here. leave it small for testing because expanding the disk takes time.
     size = "100G"
     type = "scsi"
     storage = "local-lvm"
