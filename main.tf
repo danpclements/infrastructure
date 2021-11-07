@@ -4,8 +4,13 @@ terraform {
       source = "telmate/proxmox"
       version = "2.8.0"
     }
+    backend "local"{
+      path = "/temp/terraform.tfstate"
+    }
   }
 }
+
+
 
 provider "proxmox" {
   # url is the hostname (FQDN if you have one) for the proxmox host you'd like to connect to to issue the commands. my proxmox host is 'hybrasil'. Add /api2/json at the end for the API
